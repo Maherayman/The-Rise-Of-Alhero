@@ -1,4 +1,4 @@
-﻿// Full data file generated from THE RISE OF ALHERO.txt
+// Full data file generated from THE RISE OF ALHERO.txt
 // Provides Arabic chapters and full English translations. Dialogue lines remain in Arabic inside the Arabic paragraphs where present.
 
 window.ALHERO_CHAPTERS = [
