@@ -217,6 +217,41 @@ body {
     }
 }
 
+/* =========================================================
+   MOBILE SCROLL SAFETY
+   Allows native vertical touch scrolling while preserving
+   the existing fade/performance behavior.
+========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+@media (max-width: 700px) {
+    html {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+        min-height: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body {
+        overflow-x: hidden;
+        overflow-y: visible;
+        min-height: 100vh;
+        height: auto;
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .container {
+        height: auto;
+        min-height: 0;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
