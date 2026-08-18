@@ -316,6 +316,23 @@ body::after {
     font-weight: 600;
 }
 
+.chapter-toggle {
+    display: none;
+    background: transparent;
+    color: #dfe9fb;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chapters-menu.collapsed .chapter-list {
+    max-height: 0 !important;
+    overflow: hidden;
+    transition: max-height 0.28s ease;
+}
+
 .menu-line {
     height: 1px;
 
@@ -943,6 +960,69 @@ body.english .back-to-top {
     left: auto;
 
     right: 22px;
+}
+
+
+/* =========================================================
+   WELCOME MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2,6,12,0.6);
+    z-index: 120;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    width: min(560px, calc(100% - 40px));
+    background: linear-gradient(180deg, rgba(10,14,20,0.98), rgba(6,10,14,0.98));
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.modal-content p {
+    color: #e6eef9;
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-btn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    color: #dfe9fb;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modal-btn.primary {
+    background: linear-gradient(90deg, rgba(122,155,213,0.18), rgba(255,255,255,0.03));
+    color: #fff;
+    border-color: rgba(150,180,220,0.12);
+}
+
+@media (max-width: 520px) {
+    .modal-content { padding: 16px; }
+    .modal-content p { font-size: 15px; }
+    .modal-actions { flex-direction: column; }
+    .modal-btn { width: 100%; }
 }
 
 
