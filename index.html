@@ -54,6 +54,17 @@
 
     </div>
 
+    <!-- Welcome modal for new users -->
+    <div id="welcomeModal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <p id="welcomeMessage">You should read the first chapter to proceed</p>
+            <div class="modal-actions">
+                <button id="oldChapterBtn" class="modal-btn" type="button">The First Story</button>
+                <button id="continueBtn" class="modal-btn primary" type="button">Continue</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- =====================================================
          MAIN CONTAINER
@@ -101,6 +112,8 @@
             <aside class="chapters-menu">
 
                 <div class="menu-header">
+
+                    <button id="chapterToggle" class="chapter-toggle" type="button" aria-expanded="true" aria-label="Toggle chapters">☰</button>
 
                     <span class="menu-line"></span>
 
