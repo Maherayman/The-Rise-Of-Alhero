@@ -54,6 +54,24 @@
     });
     storyObserver.observe(story, { childList: true });
 })();
+
+(function () {
+    const endingText = document.getElementById("endingText");
+    if (!endingText) return;
+
+    const arabicEnding = "عاد ألهيرو يبحث عن ماضيه... وانتهى به الطريق إلى نفسه.";
+    const englishEnding = "Alhero returned searching for his past... and the road led him back to himself.";
+
+    function syncEndingText() {
+        const nextText = document.documentElement.lang === "en" ? englishEnding : arabicEnding;
+        if (endingText.textContent !== nextText) endingText.textContent = nextText;
+    }
+
+    syncEndingText();
+    const observer = new MutationObserver(syncEndingText);
+    observer.observe(endingText, { childList: true, characterData: true, subtree: true });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+})();
 </script>
 </body>
 </html>
