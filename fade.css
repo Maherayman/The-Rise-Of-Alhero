@@ -1,0 +1,39 @@
+/* ALHERO — SMOOTH STORY FADE */
+.story {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    will-change: opacity, transform;
+}
+
+.story.story-fade-out {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.story.story-fade-in {
+    animation: alheroFadeIn 0.55s ease both;
+}
+
+@keyframes alheroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .story {
+        transition: none;
+    }
+    .story.story-fade-out,
+    .story.story-fade-in {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
