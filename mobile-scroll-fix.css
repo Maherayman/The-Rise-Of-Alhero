@@ -1,0 +1,35 @@
+/* ALHERO — MOBILE SCROLL FIX
+   Keeps normal page scrolling available on touch devices. */
+
+html,
+body {
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+}
+
+body {
+    position: relative;
+}
+
+@media (max-width: 700px) {
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        touch-action: pan-y;
+    }
+
+    .container {
+        position: relative;
+    }
+}
+
+.modal:not(.hidden) {
+    touch-action: auto;
+}
