@@ -29,10 +29,9 @@
 <script src="script.js?v=4"></script>
 <script>
 (function () {
-    const story = document.getElementById("story");
     const ending = document.getElementById("ending");
     const chapterNumber = document.getElementById("chapterNumber");
-    if (!story || !ending || !chapterNumber) return;
+    if (!ending || !chapterNumber) return;
 
     function syncEnding() {
         const match = chapterNumber.textContent.trim().match(/(\d+)\s*\/\s*(\d+)/);
@@ -44,15 +43,6 @@
     syncEnding();
     const observer = new MutationObserver(syncEnding);
     observer.observe(chapterNumber, { childList: true, characterData: true, subtree: true });
-
-    const storyObserver = new MutationObserver(() => {
-        if (story.dataset.fadeReady === "1") return;
-        story.dataset.fadeReady = "1";
-        story.classList.add("story-fade-in");
-        setTimeout(() => story.classList.remove("story-fade-in"), 600);
-        syncEnding();
-    });
-    storyObserver.observe(story, { childList: true });
 })();
 
 (function () {
@@ -69,7 +59,6 @@
 
     syncEndingText();
     const observer = new MutationObserver(syncEndingText);
-    observer.observe(endingText, { childList: true, characterData: true, subtree: true });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 })();
 </script>
