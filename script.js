@@ -1024,6 +1024,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const englishBtn =
         document.getElementById("englishBtn");
 
+    const lightThemeBtn =
+        document.getElementById("lightThemeBtn");
+
+    const darkThemeBtn =
+        document.getElementById("darkThemeBtn");
+
     const subtitle =
         document.getElementById("subtitle");
 
@@ -1067,6 +1073,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    function applyTheme(themeName) {
+        const isLight = themeName === 'light';
+        document.body.classList.toggle('light-mode', isLight);
+        localStorage.setItem('alhero-theme', themeName);
+
+        if (lightThemeBtn) {
+            lightThemeBtn.classList.toggle('active', isLight);
+        }
+
+        if (darkThemeBtn) {
+            darkThemeBtn.classList.toggle('active', !isLight);
+        }
+    }
+
     // Welcome modal behavior for new users
     function hideWelcome() {
         if (welcomeModal) welcomeModal.classList.add('hidden');
@@ -1083,20 +1103,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (oldChapterBtn) {
         oldChapterBtn.addEventListener('click', () => {
-            currentChapter = 0;
-            saveProgress();
-            hideWelcome();
-            setLanguage(currentLanguage);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const liveUrl = 'https://maherayman.github.io/alhero-the-broken-knight/';
+            window.location.href = liveUrl;
         });
     }
 
     if (continueBtn) {
         continueBtn.addEventListener('click', () => {
             hideWelcome();
-            setLanguage(currentLanguage);
             renderChapter();
         });
+    }
+
+    if (lightThemeBtn) {
+        lightThemeBtn.addEventListener('click', () => applyTheme('light'));
+    }
+
+    if (darkThemeBtn) {
+        darkThemeBtn.addEventListener('click', () => applyTheme('dark'));
     }
 
 
@@ -1732,6 +1756,9 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        INITIALIZE
     ====================================================== */
+
+    const savedTheme = localStorage.getItem('alhero-theme') || 'dark';
+    applyTheme(savedTheme);
 
     loadProgress();
 
