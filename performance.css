@@ -1,17 +1,25 @@
 /* =========================================================
-   ALHERO — PERFORMANCE + SMOOTH SCROLL PATCH
-   Prevents white flashes while scrolling, especially on mobile.
+   ALHERO — PERFORMANCE
 ========================================================= */
 
 html,
 body {
     background-color: #060b12;
-    overscroll-behavior-y: none;
     -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: auto;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
 }
 
 .story {
@@ -39,47 +47,6 @@ html {
 .back-to-top {
     transition-duration: 0.3s;
 }
-
-@media (max-width: 700px) {
-    html,
-    body {
-        background-color: #060b12;
-        background-attachment: scroll;
-    }
-
-    body::before,
-    body::after {
-        position: absolute;
-        filter: blur(42px);
-        opacity: 0.25;
-    }
-
-    .container {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-
-    .story {
-        will-change: auto;
-    }
-}
-
-@media (max-width: 420px) {
-    body::before,
-    body::after {
-        filter: blur(30px);
-        opacity: 0.2;
-    }
-
-    .story {
-        animation-duration: 0.45s;
-    }
-}
-
-/* =========================================================
-   RESPONSIVE DIMENSIONS
-   Layout only — keeps the existing animation and visual style.
-========================================================= */
 
 html,
 body {
@@ -115,16 +82,36 @@ body {
 }
 
 @media (max-width: 700px) {
-    .container {
-        width: calc(100% - 20px);
-        margin: 10px auto 24px;
-        padding: 24px 16px 22px;
-        border-radius: 20px;
+    html {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+        min-height: 100%;
+        -webkit-overflow-scrolling: touch;
     }
 
-    .settings-panel {
-        padding: 14px 8px 0;
-        gap: 8px;
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+        background-attachment: scroll;
+    }
+
+    body::before,
+    body::after {
+        position: absolute;
+        filter: blur(42px);
+        opacity: 0.25;
+    }
+
+    .container {
+        height: auto;
+        min-height: 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
     .hero {
@@ -170,6 +157,10 @@ body {
         padding: 14px 15px;
         font-size: 13px;
     }
+
+    .story {
+        will-change: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -214,41 +205,6 @@ body {
 
     .hero h1 {
         font-size: 39px;
-    }
-}
-
-/* =========================================================
-   MOBILE SCROLL SAFETY
-   Allows native vertical touch scrolling while preserving
-   the existing fade/performance behavior.
-========================================================= */
-
-html,
-body {
-    min-height: 100%;
-}
-
-@media (max-width: 700px) {
-    html {
-        overflow-x: hidden;
-        overflow-y: auto;
-        height: auto;
-        min-height: 100%;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    body {
-        overflow-x: hidden;
-        overflow-y: visible;
-        min-height: 100vh;
-        height: auto;
-        touch-action: pan-y;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .container {
-        height: auto;
-        min-height: 0;
     }
 }
 
