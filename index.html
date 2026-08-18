@@ -34,32 +34,30 @@
          LANGUAGE SWITCHER
     ====================================================== -->
 
-    <div class="language-switcher">
+    <div class="settings-panel">
+        <div class="setting-group">
+            <span class="setting-label">Theme</span>
+            <div class="setting-options">
+                <button id="lightThemeBtn" class="setting-btn" type="button">Light</button>
+                <button id="darkThemeBtn" class="setting-btn active" type="button">Dark</button>
+            </div>
+        </div>
 
-        <button
-            id="arabicBtn"
-            class="language-btn active"
-            type="button"
-        >
-            العربية
-        </button>
-
-        <button
-            id="englishBtn"
-            class="language-btn"
-            type="button"
-        >
-            English
-        </button>
-
+        <div class="setting-group">
+            <span class="setting-label">Language</span>
+            <div class="setting-options">
+                <button id="arabicBtn" class="setting-btn active" type="button">AR</button>
+                <button id="englishBtn" class="setting-btn" type="button">EN</button>
+            </div>
+        </div>
     </div>
 
     <!-- Welcome modal for new users -->
     <div id="welcomeModal" class="modal hidden" role="dialog" aria-modal="true">
         <div class="modal-content">
-            <p id="welcomeMessage">You should read the first chapter to proceed</p>
+            <p id="welcomeMessage">You should read the first story to proceed</p>
             <div class="modal-actions">
-                <button id="oldChapterBtn" class="modal-btn" type="button">The First Story</button>
+                <button id="oldChapterBtn" class="modal-btn" type="button">Read the first story</button>
                 <button id="continueBtn" class="modal-btn primary" type="button">Continue</button>
             </div>
         </div>
