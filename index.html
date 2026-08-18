@@ -9,13 +9,10 @@
 <link rel="stylesheet" href="design.css?v=4">
 <link rel="stylesheet" href="performance.css?v=2">
 <link rel="stylesheet" href="fade.css?v=1">
-<link rel="stylesheet" href="mobile-dimensions-fix.css?v=1">
-<link rel="stylesheet" href="mobile-scroll-fix.css?v=1">
 </head>
 <body>
 <div class="settings-panel">
-<div class="setting-group"><span class="setting-label">Theme</span><div class="setting-options"><button id="lightThemeBtn" class="setting-btn" type="button">Light</button><button id="darkThemeBtn" class="setting-btn active" type="button">Dark</button></div></div>
-<div class="setting-group"><span class="setting-label">Language</span><div class="setting-options"><button id="arabicBtn" class="setting-btn active" type="button">AR</button><button id="englishBtn" class="setting-btn" type="button">EN</button></div></div>
+<div class="setting-group"><span class="setting-label">Theme</span><div class="setting-options"><button id="lightThemeBtn" class="setting-btn" type="button">Light</button><button id="darkThemeBtn" class="setting-btn active" type="button">Dark</button></div></div><div class="setting-group"><span class="setting-label">Language</span><div class="setting-options"><button id="arabicBtn" class="setting-btn active" type="button">AR</button><button id="englishBtn" class="setting-btn" type="button">EN</button></div></div>
 </div>
 <div id="welcomeModal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-content"><p id="welcomeMessage">You should read the first story to proceed</p><div class="modal-actions"><button id="oldChapterBtn" class="modal-btn" type="button">Read the first story</button><button id="continueBtn" class="modal-btn primary" type="button">Continue</button></div></div></div>
 <div class="container">
@@ -29,7 +26,6 @@
 <button id="backToTop" class="back-to-top" type="button" aria-label="العودة إلى الأعلى">↑</button>
 <script src="data.js?v=4"></script>
 <script src="script.js?v=4"></script>
-<script src="button-fix.js?v=2"></script>
 <script>
 (function () {
     const story = document.getElementById("story");
