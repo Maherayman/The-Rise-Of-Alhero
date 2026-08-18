@@ -1,94 +1,29 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ألهيرو — ما بعد الانكسار | الجزء الثاني">
-    <meta name="theme-color" content="#080d18">
-    <title>ألهيرو — ما بعد الانكسار</title>
-    <link rel="stylesheet" href="design.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ألهيرو — ما بعد الانكسار | الجزء الثاني">
+<meta name="theme-color" content="#080d18">
+<title>ألهيرو — ما بعد الانكسار</title>
+<link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <div class="settings-panel">
-        <div class="setting-group">
-            <span class="setting-label">Theme</span>
-            <div class="setting-options">
-                <button id="lightThemeBtn" class="setting-btn" type="button">Light</button>
-                <button id="darkThemeBtn" class="setting-btn active" type="button">Dark</button>
-            </div>
-        </div>
-        <div class="setting-group">
-            <span class="setting-label">Language</span>
-            <div class="setting-options">
-                <button id="arabicBtn" class="setting-btn active" type="button">AR</button>
-                <button id="englishBtn" class="setting-btn" type="button">EN</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="welcomeModal" class="modal hidden" role="dialog" aria-modal="true">
-        <div class="modal-content">
-            <p id="welcomeMessage">You should read the first story to proceed</p>
-            <div class="modal-actions">
-                <button id="oldChapterBtn" class="modal-btn" type="button">Read the first story</button>
-                <button id="continueBtn" class="modal-btn primary" type="button">Continue</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <header class="hero">
-            <div class="small-title">ALHERO • PART II</div>
-            <h1 id="mainTitle">ألهيرو</h1>
-            <h2 id="bookTitle">ما بعد الانكسار</h2>
-            <p id="subtitle">هذه المرة... لم ينتظر أن يختاره أحد، بل اختار نفسه.</p>
-        </header>
-
-        <main class="story-layout">
-            <aside class="chapters-menu">
-                <div class="menu-header">
-                    <button id="chapterToggle" class="chapter-toggle" type="button" aria-expanded="true" aria-label="Toggle chapters">☰</button>
-                    <span class="menu-line"></span>
-                    <h3 id="chaptersTitle">فصول الرواية</h3>
-                    <span class="menu-line"></span>
-                </div>
-                <div id="chapterList" class="chapter-list"></div>
-            </aside>
-
-            <section class="story-section">
-                <div id="storyInfo" class="story-info">
-                    <span class="info-icon">✦</span>
-                    <p>الجزء الثاني من رحلة ألهيرو. بعد سنوات من الغياب، يعود إلى بالدونز ويكتشف أن الماضي لم ينتهِ بعد.</p>
-                </div>
-
-                <div id="chapterCounter" class="chapter-counter">الفصل 1</div>
-                <article id="story" class="story"></article>
-
-                <div class="navigation">
-                    <button id="previousBtn" class="navigation-btn previous" type="button">
-                        <span class="arrow">←</span><span id="previousText">السابق</span>
-                    </button>
-                    <div id="chapterNumber" class="navigation-number">1 / 16</div>
-                    <button id="nextBtn" class="navigation-btn next" type="button">
-                        <span id="nextText">التالي</span><span class="arrow">→</span>
-                    </button>
-                </div>
-            </section>
-        </main>
-
-        <footer class="ending">
-            <div class="ending-line"></div>
-            <h2 id="endingTitle">النهاية</h2>
-            <p id="endingText">لم يعد الفارس المكسور... لقد اختار نفسه.</p>
-            <div class="ending-line"></div>
-            <div class="copyright">ALHERO • BEYOND THE BROKEN KNIGHT</div>
-        </footer>
-    </div>
-
-    <button id="backToTop" class="back-to-top" type="button" aria-label="العودة إلى الأعلى">↑</button>
-
-    <script src="data.js"></script>
-    <script src="script.js"></script>
-    <script src="enhancements.js"></script>
+<div class="settings-panel">
+<div class="setting-group"><span class="setting-label">Theme</span><div class="setting-options"><button id="lightThemeBtn" class="setting-btn" type="button">Light</button><button id="darkThemeBtn" class="setting-btn active" type="button">Dark</button></div></div>
+<div class="setting-group"><span class="setting-label">Language</span><div class="setting-options"><button id="arabicBtn" class="setting-btn active" type="button">AR</button><button id="englishBtn" class="setting-btn" type="button">EN</button></div></div>
+</div>
+<div id="welcomeModal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-content"><p id="welcomeMessage">You should read the first story to proceed</p><div class="modal-actions"><button id="oldChapterBtn" class="modal-btn" type="button">Read the first story</button><button id="continueBtn" class="modal-btn primary" type="button">Continue</button></div></div></div>
+<div class="container">
+<header class="hero"><div class="small-title">ALHERO • PART II</div><h1 id="mainTitle">ألهيرو</h1><h2 id="bookTitle">ما بعد الانكسار</h2><p id="subtitle">هذه المرة... لم ينتظر أن يختاره أحد، بل اختار نفسه.</p></header>
+<main class="story-layout">
+<aside class="chapters-menu"><div class="menu-header"><button id="chapterToggle" class="chapter-toggle" type="button" aria-expanded="true" aria-label="Toggle chapters">☰</button><span class="menu-line"></span><h3 id="chaptersTitle">فصول الرواية</h3><span class="menu-line"></span></div><div id="chapterList" class="chapter-list"></div></aside>
+<section class="story-section"><div id="storyInfo" class="story-info"><span class="info-icon">✦</span><p>الجزء الثاني من رحلة ألهيرو. بعد سنوات من الغياب، يعود إلى بالدونز ويكتشف أن الماضي لم ينتهِ بعد.</p></div><div id="chapterCounter" class="chapter-counter">الفصل 1</div><article id="story" class="story"></article><div class="navigation"><button id="previousBtn" class="navigation-btn previous" type="button"><span class="arrow">←</span><span id="previousText">السابق</span></button><div id="chapterNumber" class="navigation-number">1 / 16</div><button id="nextBtn" class="navigation-btn next" type="button"><span id="nextText">التالي</span><span class="arrow">→</span></button></div></section>
+</main>
+<footer class="ending"><div class="ending-line"></div><h2 id="endingTitle">النهاية</h2><p id="endingText">لم يعد الفارس المكسور... لقد اختار نفسه.</p><div class="ending-line"></div><div class="copyright">ALHERO • BEYOND THE BROKEN KNIGHT</div></footer>
+</div>
+<button id="backToTop" class="back-to-top" type="button" aria-label="العودة إلى الأعلى">↑</button>
+<script src="data.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
