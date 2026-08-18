@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="ألهيرو — ما بعد الانكسار | الجزء الثاني"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080d18"
+    >
+
+    <title>ألهيرو — ما بعد الانكسار</title>
+
+    <link
+        rel="stylesheet"
+        href="design.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         LANGUAGE SWITCHER
+    ====================================================== -->
+
+    <div class="language-switcher">
+
+        <button
+            id="arabicBtn"
+            class="language-btn active"
+            type="button"
+        >
+            العربية
+        </button>
+
+        <button
+            id="englishBtn"
+            class="language-btn"
+            type="button"
+        >
+            English
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <div class="container">
+
+
+        <!-- =================================================
+             HERO / TITLE
+        ================================================== -->
+
+        <header class="hero">
+
+            <div class="small-title">
+                ALHERO • PART II
+            </div>
+
+            <h1 id="mainTitle">
+                ألهيرو
+            </h1>
+
+            <h2 id="bookTitle">
+                ما بعد الانكسار
+            </h2>
+
+            <p id="subtitle">
+                هذه المرة... لم ينتظر أن يختاره أحد، بل اختار نفسه.
+            </p>
+
+        </header>
+
+
+        <!-- =================================================
+             STORY LAYOUT
+        ================================================== -->
+
+        <main class="story-layout">
+
+
+            <!-- =============================================
+                 CHAPTERS MENU
+            ============================================== -->
+
+            <aside class="chapters-menu">
+
+                <div class="menu-header">
+
+                    <span class="menu-line"></span>
+
+                    <h3 id="chaptersTitle">
+                        فصول الرواية
+                    </h3>
+
+                    <span class="menu-line"></span>
+
+                </div>
+
+
+                <div
+                    id="chapterList"
+                    class="chapter-list"
+                >
+
+                    <!--
+                        الفصول يتم إنشاؤها
+                        بواسطة JavaScript
+                    -->
+
+                </div>
+
+            </aside>
+
+
+            <!-- =============================================
+                 STORY CONTENT
+            ============================================== -->
+
+            <section class="story-section">
+
+
+                <!-- =========================================
+                     STORY INTRO
+                ========================================== -->
+
+                <div
+                    id="storyInfo"
+                    class="story-info"
+                >
+
+                    <span class="info-icon">✦</span>
+
+                    <p>
+                        الجزء الثاني من رحلة ألهيرو.
+                        بعد سنوات من الغياب، يعود إلى بالدونز
+                        ويكتشف أن الماضي لم ينتهِ بعد.
+                    </p>
+
+                </div>
+
+
+                <!-- =========================================
+                     CHAPTER COUNTER
+                ========================================== -->
+
+                <div
+                    id="chapterCounter"
+                    class="chapter-counter"
+                >
+                    الفصل 1
+                </div>
+
+
+                <!-- =========================================
+                     STORY
+                ========================================== -->
+
+                <article
+                    id="story"
+                    class="story"
+                >
+
+                    <!--
+                        محتوى الفصل الحالي
+                        يتم وضعه بواسطة script.js
+                    -->
+
+                </article>
+
+
+                <!-- =========================================
+                     NAVIGATION
+                ========================================== -->
+
+                <div class="navigation">
+
+
+                    <button
+                        id="previousBtn"
+                        class="navigation-btn previous"
+                        type="button"
+                    >
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                        <span id="previousText">
+                            السابق
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        id="chapterNumber"
+                        class="navigation-number"
+                    >
+                        1 / 16
+                    </div>
+
+
+                    <button
+                        id="nextBtn"
+                        class="navigation-btn next"
+                        type="button"
+                    >
+
+                        <span id="nextText">
+                            التالي
+                        </span>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+
+        <!-- =================================================
+             ENDING
+        ================================================== -->
+
+        <footer class="ending">
+
+            <div class="ending-line"></div>
+
+            <h2 id="endingTitle">
+                النهاية
+            </h2>
+
+            <p id="endingText">
+                لم يعد الفارس المكسور...
+                لقد اختار نفسه.
+            </p>
+
+            <div class="ending-line"></div>
+
+            <div class="copyright">
+                ALHERO • BEYOND THE BROKEN KNIGHT
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         BACK TO TOP
+    ====================================================== -->
+
+    <button
+        id="backToTop"
+        class="back-to-top"
+        type="button"
+        aria-label="العودة إلى الأعلى"
+    >
+        ↑
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+        <script src="data.js"></script>
+        <script src="script.js"></script>
+
+</body>
+
+</html>
