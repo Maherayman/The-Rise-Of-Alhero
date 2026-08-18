@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="design.css?v=4">
 <link rel="stylesheet" href="performance.css?v=4">
 <link rel="stylesheet" href="fade.css?v=1">
+<link rel="stylesheet" href="ending.css?v=1">
 </head>
 <body>
 <div class="settings-panel">
@@ -35,8 +36,9 @@
 
     function syncEnding() {
         const match = chapterNumber.textContent.trim().match(/(\d+)\s*\/\s*(\d+)/);
-        const isLastChapter = match && Number(match[1]) === Number(match[2]);
+        const isLastChapter = !!match && Number(match[1]) === Number(match[2]);
         ending.hidden = !isLastChapter;
+        ending.classList.toggle("ending-visible", isLastChapter);
     }
 
     syncEnding();
