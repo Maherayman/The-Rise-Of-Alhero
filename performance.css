@@ -3,7 +3,6 @@
    Prevents white flashes while scrolling, especially on mobile.
 ========================================================= */
 
-/* Keep a dark paint layer behind every scroll frame */
 html,
 body {
     background-color: #060b12;
@@ -15,7 +14,6 @@ html {
     scroll-behavior: auto;
 }
 
-/* Smooth, soft chapter entrance without a blank flash */
 .story {
     animation: alheroStoryAppear 0.55s ease-out both;
     will-change: opacity, transform;
@@ -34,7 +32,6 @@ html {
     }
 }
 
-/* Calm UI transitions */
 .setting-btn,
 .chapter-item,
 .navigation-btn,
@@ -43,7 +40,6 @@ html {
     transition-duration: 0.3s;
 }
 
-/* Mobile: avoid expensive effects that can cause white/compositing flashes */
 @media (max-width: 700px) {
     html,
     body {
@@ -68,7 +64,6 @@ html {
     }
 }
 
-/* Extra protection for smaller phones */
 @media (max-width: 420px) {
     body::before,
     body::after {
@@ -78,6 +73,147 @@ html {
 
     .story {
         animation-duration: 0.45s;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE DIMENSIONS
+   Layout only — keeps the existing animation and visual style.
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+}
+
+.container,
+.story-layout,
+.story-section,
+.story,
+.story-info,
+.chapter-list {
+    max-width: 100%;
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: min(100% - 24px, 760px);
+        margin: 18px auto 30px;
+        padding: 30px 22px 26px;
+        border-radius: 24px;
+    }
+
+    .hero {
+        padding: 12px 8px 38px;
+    }
+
+    .story-layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: calc(100% - 20px);
+        margin: 10px auto 24px;
+        padding: 24px 16px 22px;
+        border-radius: 20px;
+    }
+
+    .settings-panel {
+        padding: 14px 8px 0;
+        gap: 8px;
+    }
+
+    .hero {
+        padding: 8px 4px 30px;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 14vw, 72px);
+        line-height: 0.98;
+        letter-spacing: 0.04em;
+        overflow-wrap: anywhere;
+    }
+
+    .hero h2 {
+        font-size: clamp(20px, 6vw, 32px);
+        line-height: 1.25;
+        letter-spacing: 0.06em;
+    }
+
+    .hero p {
+        max-width: 100%;
+        margin-top: 20px;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .story-layout {
+        display: block;
+    }
+
+    .chapters-menu {
+        position: relative;
+        top: auto;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .story-section {
+        width: 100%;
+    }
+
+    .story-info {
+        padding: 14px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 14px);
+        padding: 20px 12px 18px;
+        border-radius: 17px;
+    }
+
+    .settings-panel {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .setting-group {
+        max-width: 100%;
+        gap: 7px;
+        padding: 7px 9px;
+    }
+
+    .setting-label {
+        font-size: 10px;
+    }
+
+    .setting-btn {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 10px);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
     }
 }
 
