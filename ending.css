@@ -1,0 +1,34 @@
+/* Ending reveal: subtle, lightweight, and isolated from the main design. */
+.ending {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.ending.ending-visible {
+    animation: endingReveal 0.7s ease both;
+}
+
+@keyframes endingReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ending.ending-visible {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .ending.ending-visible {
+        animation-duration: 0.5s;
+    }
+}
