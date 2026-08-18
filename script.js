@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    ALHERO — BEYOND THE BROKEN KNIGHT
    SCRIPT.JS
 ========================================================= */
@@ -994,6 +994,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const chapterListElement =
         document.getElementById("chapterList");
 
+    const chapterToggle =
+        document.getElementById("chapterToggle");
+
+    const welcomeModal =
+        document.getElementById("welcomeModal");
+
+    const oldChapterBtn =
+        document.getElementById("oldChapterBtn");
+
+    const continueBtn =
+        document.getElementById("continueBtn");
+
     const chapterCounter =
         document.getElementById("chapterCounter");
 
@@ -1041,6 +1053,50 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!storyElement || !chapterListElement) {
         console.error("ALHERO: Required DOM elements missing (#story or #chapterList). Initialization aborted.");
         return;
+    }
+
+    // Wire chapter toggle (mobile)
+    if (chapterToggle) {
+        chapterToggle.addEventListener("click", () => {
+            const menu = chapterListElement.closest('.chapters-menu');
+            if (!menu) return;
+            const collapsed = menu.classList.toggle('collapsed');
+            chapterToggle.setAttribute('aria-expanded', String(!collapsed));
+            chapterToggle.textContent = collapsed ? '☰' : '✕';
+        });
+    }
+
+
+    // Welcome modal behavior for new users
+    function hideWelcome() {
+        if (welcomeModal) welcomeModal.classList.add('hidden');
+        try { localStorage.setItem('alhero-welcome-seen', '1'); } catch (e) {}
+    }
+
+    function showWelcome() {
+        if (!welcomeModal) return;
+        try {
+            if (localStorage.getItem('alhero-welcome-seen')) return;
+        } catch (e) {}
+        welcomeModal.classList.remove('hidden');
+    }
+
+    if (oldChapterBtn) {
+        oldChapterBtn.addEventListener('click', () => {
+            currentChapter = 0;
+            saveProgress();
+            hideWelcome();
+            setLanguage(currentLanguage);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    if (continueBtn) {
+        continueBtn.addEventListener('click', () => {
+            hideWelcome();
+            setLanguage(currentLanguage);
+            renderChapter();
+        });
     }
 
 
@@ -1439,32 +1495,22 @@ document.addEventListener("DOMContentLoaded", () => {
             translations[currentLanguage];
 
 
-        subtitle.textContent =
-            text.subtitle;
+        if (subtitle) subtitle.textContent = text.subtitle;
 
+        if (storyInfo) {
+            const p = storyInfo.querySelector("p");
+            if (p) p.textContent = text.storyInfo;
+        }
 
-        storyInfo.querySelector("p").textContent =
-            text.storyInfo;
+        if (chaptersTitle) chaptersTitle.textContent = text.chapters;
 
+        if (previousText) previousText.textContent = text.previous;
 
-        chaptersTitle.textContent =
-            text.chapters;
+        if (nextText) nextText.textContent = text.next;
 
+        if (endingTitle) endingTitle.textContent = text.ending;
 
-        previousText.textContent =
-            text.previous;
-
-
-        nextText.textContent =
-            text.next;
-
-
-        endingTitle.textContent =
-            text.ending;
-
-
-        endingText.textContent =
-            text.endingText;
+        if (endingText) endingText.textContent = text.endingText;
 
     }
 
@@ -1591,77 +1637,29 @@ document.addEventListener("DOMContentLoaded", () => {
        BACK TO TOP
     ====================================================== */
 
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (
-                window.scrollY > 350
-            ) {
-
-                backToTop.classList.add(
-                    "show"
-                );
-
+    if (backToTop) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 350) {
+                backToTop.classList.add("show");
             } else {
-
-                backToTop.classList.remove(
-                    "show"
-                );
-
+                backToTop.classList.remove("show");
             }
+        });
 
-        }
-    );
-
-
-    backToTop.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 
 
     /* =====================================================
        BUTTON EVENTS
     ====================================================== */
 
-    nextBtn.addEventListener(
-        "click",
-        nextChapter
-    );
-
-
-    previousBtn.addEventListener(
-        "click",
-        previousChapter
-    );
-
-
-    arabicBtn.addEventListener(
-        "click",
-        () => {
-
-            setLanguage("ar");
-
-        }
-    );
-
-
-    englishBtn.addEventListener(
-        "click",
-        () => {
-
-            setLanguage("en");
-
-        }
-    );
+    if (nextBtn) nextBtn.addEventListener("click", nextChapter);
+    if (previousBtn) previousBtn.addEventListener("click", previousChapter);
+    if (arabicBtn) arabicBtn.addEventListener("click", () => { setLanguage("ar"); });
+    if (englishBtn) englishBtn.addEventListener("click", () => { setLanguage("en"); });
 
 
     /* =====================================================
@@ -1736,6 +1734,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ====================================================== */
 
     loadProgress();
+
+    // show welcome modal for new users (before initial render)
+    showWelcome();
 
     setLanguage(
         currentLanguage
