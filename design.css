@@ -79,54 +79,105 @@ body::after {
    LANGUAGE SWITCHER
 ========================================================= */
 
-.language-switcher {
+.settings-panel {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-
+    flex-wrap: wrap;
+    gap: 12px;
     padding: 20px 15px 0;
 }
 
-.language-btn {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-
-    color: #bfc7d8;
-
-    padding: 10px 18px;
-
+.setting-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
-
-    cursor: pointer;
-
-    font-size: 14px;
-    letter-spacing: 0.04em;
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+    background: rgba(255, 255, 255, 0.03);
 }
 
-.language-btn:hover {
+.setting-label {
+    font-size: 12px;
+    color: #bfd0eb;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.setting-options {
+    display: flex;
+    gap: 6px;
+}
+
+.setting-btn {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: #bfc7d8;
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    transition: all 0.25s ease;
+}
+
+.setting-btn:hover {
     background: rgba(255, 255, 255, 0.10);
     color: white;
-    box-shadow: 0 8px 22px rgba(146, 175, 214, 0.18);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
-.language-btn.active {
+.setting-btn.active {
     background: linear-gradient(135deg, rgba(127, 165, 220, 0.2), rgba(255, 255, 255, 0.09));
     color: white;
-
     border-color: rgba(166, 189, 230, 0.45);
     box-shadow: 0 10px 24px rgba(105, 133, 179, 0.22);
+}
+
+body.light-mode {
+    background:
+        radial-gradient(circle at top, rgba(147, 169, 214, 0.35), transparent 28%),
+        linear-gradient(180deg, #ecf3ff 0%, #dfeafc 30%, #edf3ff 100%);
+    color: #1b2333;
+}
+
+body.light-mode .container {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(240, 244, 250, 0.96));
+    border-color: rgba(80, 104, 146, 0.14);
+    box-shadow: 0 30px 80px rgba(48, 63, 82, 0.18);
+}
+
+body.light-mode .story,
+body.light-mode .chapters-menu,
+body.light-mode .story-info,
+body.light-mode .modal-content {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(72, 99, 145, 0.14);
+    color: #1d2433;
+}
+
+body.light-mode .chapter-item,
+body.light-mode .chapter-text,
+body.light-mode .story-info p,
+body.light-mode .dialogue,
+body.light-mode .hero p,
+body.light-mode .ending p,
+body.light-mode .chapter-counter,
+body.light-mode .navigation-number,
+body.light-mode .setting-label,
+body.light-mode .setting-btn {
+    color: #23314d;
+}
+
+body.light-mode .chapter-item.active,
+body.light-mode .setting-btn.active {
+    background: linear-gradient(135deg, rgba(116, 153, 218, 0.2), rgba(255,255,255,0.8));
+}
+
+body.light-mode .modal {
+    background: rgba(17, 23, 31, 0.28);
 }
 
 
